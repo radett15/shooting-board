@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #4A4442;
+}
+
+.input {
+  @apply w-full rounded-xl2 border border-pink px-4 py-2.5 outline-none focus:border-pink-dark bg-white;
+}
