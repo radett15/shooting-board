@@ -30,23 +30,23 @@ export default function Jadwal() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-6 pb-24 md:pb-6">
       <div className="flex items-center justify-between mb-1">
-        <h1 className="text-2xl font-bold">Jadwal Shooting</h1>
+        <h1 className="text-2xl font-bold">Schedule</h1>
         {isAdmin && (
           <Link
             to="/shooting/baru"
-            className="bg-pink-dark text-white text-sm font-semibold px-4 py-2 rounded-xl2"
+            className="bg-primary text-white text-sm font-semibold px-4 py-2 rounded-xl2"
           >
             + Tambah Shooting
           </Link>
         )}
       </div>
-      <p className="text-sm text-warmgray/70 mb-6">Semua jadwal produksi tim kamu, satu tempat ✨</p>
+      <p className="text-sm text-warmgray/70 mb-6">Plan every shoot without the chaos.</p>
 
       {error && (
-        <div className="bg-white rounded-xl2 p-6 text-center">
+        <div className="bg-white rounded-card p-6 text-center">
           <p className="font-semibold">Jadwal belum dapat dimuat.</p>
           <p className="text-sm text-warmgray/70">Coba lagi dalam beberapa saat.</p>
-          <button onClick={load} className="mt-3 bg-pink-dark text-white text-sm font-semibold px-4 py-2 rounded-xl2">
+          <button onClick={load} className="mt-3 bg-primary text-white text-sm font-semibold px-4 py-2 rounded-xl2">
             Coba Lagi
           </button>
         </div>
@@ -61,7 +61,7 @@ export default function Jadwal() {
       )}
 
       {!error && shootings !== null && shootings.length === 0 && (
-        <div className="bg-white rounded-xl2 p-8 text-center">
+        <div className="bg-white rounded-card p-8 text-center">
           <p className="font-semibold">Belum ada jadwal shooting</p>
           <p className="text-sm text-warmgray/70 mt-1">
             {isAdmin ? 'Tambahkan jadwal produksi pertama kamu ✨' : 'Belum ada jadwal tersedia.'}
@@ -69,7 +69,7 @@ export default function Jadwal() {
           {isAdmin && (
             <Link
               to="/shooting/baru"
-              className="inline-block mt-4 bg-pink-dark text-white text-sm font-semibold px-4 py-2 rounded-xl2"
+              className="inline-block mt-4 bg-primary text-white text-sm font-semibold px-4 py-2 rounded-xl2"
             >
               + Tambah Shooting
             </Link>

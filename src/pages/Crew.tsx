@@ -50,7 +50,7 @@ export default function Crew() {
 
       <div className="space-y-3">
         {people.map((p) => (
-          <div key={p.id} className="bg-white rounded-xl2 shadow-sm p-4 flex items-center justify-between gap-3">
+          <div key={p.id} className="bg-white rounded-card shadow-sm p-4 flex items-center justify-between gap-3">
             <div className="flex-1 min-w-0">
               {isAdmin && editingId === p.id ? (
                 <div className="flex gap-2">
@@ -59,7 +59,7 @@ export default function Crew() {
                     value={editingName}
                     onChange={(e) => setEditingName(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && saveName(p.id)}
-                    className="text-sm rounded-xl2 border border-pink px-2 py-1 flex-1 min-w-0"
+                    className="text-sm rounded-xl2 border border-line px-2 py-1 flex-1 min-w-0"
                   />
                   <button
                     onClick={() => saveName(p.id)}
@@ -70,7 +70,7 @@ export default function Crew() {
                 </div>
               ) : (
                 <p
-                  className={`font-semibold truncate ${isAdmin ? 'cursor-pointer hover:text-pink-dark' : ''}`}
+                  className={`font-semibold truncate ${isAdmin ? 'cursor-pointer hover:text-primary' : ''}`}
                   onClick={() => isAdmin && startEdit(p)}
                   title={isAdmin ? 'Klik untuk ubah nama' : undefined}
                 >
@@ -83,7 +83,7 @@ export default function Crew() {
               <select
                 value={p.role}
                 onChange={(e) => changeRole(p.id, e.target.value as Role)}
-                className="text-sm rounded-xl2 border border-pink px-2 py-1"
+                className="text-sm rounded-xl2 border border-line px-2 py-1"
               >
                 <option value="crew">Crew</option>
                 <option value="admin">Admin</option>

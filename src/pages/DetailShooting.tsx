@@ -61,7 +61,7 @@ export default function DetailShooting() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6 pb-24 md:pb-6 space-y-5">
-      <div className="bg-white rounded-xl2 shadow-sm p-5">
+      <div className="bg-white rounded-card shadow-sm p-5">
         <div className="flex items-start justify-between gap-3">
           <h1 className="text-xl font-bold">{shooting.title}</h1>
           <ShootingStatusBadge status={shooting.status} />
@@ -114,7 +114,7 @@ export default function DetailShooting() {
 
       {/* Attendance untuk crew */}
       {!isAdmin && myRow && (
-        <div className="bg-white rounded-xl2 shadow-sm p-5">
+        <div className="bg-white rounded-card shadow-sm p-5">
           <p className="font-semibold mb-3">Kehadiran kamu</p>
           {myRow.attendance_status === 'pending' ? (
             <div className="flex gap-2">
@@ -140,7 +140,7 @@ export default function DetailShooting() {
       )}
 
       {/* Crew list */}
-      <div className="bg-white rounded-xl2 shadow-sm p-5">
+      <div className="bg-white rounded-card shadow-sm p-5">
         <p className="font-semibold mb-3">Crew</p>
         {crew.length === 0 && <p className="text-sm text-warmgray/60">Belum ada crew ditugaskan.</p>}
         <div className="space-y-2">
@@ -154,7 +154,7 @@ export default function DetailShooting() {
       </div>
 
       {/* Equipment list */}
-      <div className="bg-white rounded-xl2 shadow-sm p-5">
+      <div className="bg-white rounded-card shadow-sm p-5">
         <p className="font-semibold mb-3">Equipment</p>
         {equipmentRows.length === 0 && <p className="text-sm text-warmgray/60">Belum ada equipment ditambahkan.</p>}
         <div className="space-y-2">
@@ -169,7 +169,7 @@ export default function DetailShooting() {
 
       {confirmDelete && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center px-4 z-20">
-          <div className="bg-white rounded-xl2 p-6 max-w-sm w-full text-center">
+          <div className="bg-white rounded-card p-6 max-w-sm w-full text-center">
             <p className="font-semibold">Hapus shooting ini?</p>
             <p className="text-sm text-warmgray/70 mt-1">
               Data shooting dan penugasan crew akan dihapus.

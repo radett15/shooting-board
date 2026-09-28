@@ -25,10 +25,10 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cream px-4">
-      <div className="w-full max-w-sm bg-white rounded-xl2 shadow-md p-6">
-        <h1 className="text-2xl font-bold text-center">🎬 Shooting Board</h1>
+      <div className="w-full max-w-sm bg-white rounded-card shadow-md p-6">
+        <h1 className="text-2xl font-bold text-center">ShootFlow</h1>
         <p className="text-center text-sm text-warmgray/70 mt-1 mb-6">
-          jadwal produksi tim kamu, satu tempat ✨
+          Plan it. Shoot it. Flow it.
         </p>
         <form onSubmit={handleSubmit} className="space-y-3">
           <input
@@ -37,7 +37,7 @@ export default function Login() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-xl2 border border-pink px-4 py-3 outline-none focus:border-pink-dark"
+            className="w-full rounded-xl2 border border-line px-4 py-3 outline-none focus:border-primary"
           />
           <input
             type="password"
@@ -45,20 +45,20 @@ export default function Login() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-xl2 border border-pink px-4 py-3 outline-none focus:border-pink-dark"
+            className="w-full rounded-xl2 border border-line px-4 py-3 outline-none focus:border-primary"
           />
           {error && <p className="text-sm text-red-500">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-pink-dark text-white font-semibold rounded-xl2 py-3 disabled:opacity-60"
+            className="w-full bg-primary text-white font-semibold rounded-xl2 py-3 disabled:opacity-60"
           >
             {loading ? 'Memproses...' : 'Masuk'}
           </button>
         </form>
         <p className="text-center text-sm mt-4">
           Belum punya akun?{' '}
-          <Link to="/register" className="text-pink-dark font-semibold">
+          <Link to="/register" className="text-primary font-semibold">
             Daftar
           </Link>
         </p>

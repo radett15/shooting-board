@@ -4,15 +4,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#FFF8F0',
-        pink: { DEFAULT: '#FFD6E8', dark: '#FF8FB8' },
-        yellow: { DEFAULT: '#FFF3B0', dark: '#FFD93D' },
-        mint: { DEFAULT: '#D4F5E9', dark: '#6FCF97' },
-        lavender: { DEFAULT: '#E8DFFF', dark: '#B39DFF' },
-        warmgray: '#4A4442',
+        cream: '#FFFDF8',
+        line: '#ECEAF2',
+        primary: { DEFAULT: '#7C6FF2', soft: '#EFEDFE' },
+        pink: { DEFAULT: '#FFE3E8', dark: '#E5566F' },
+        yellow: { DEFAULT: '#FFF0DA', dark: '#F5A340' },
+        mint: { DEFAULT: '#E0F4EA', dark: '#3FA57A' },
+        lavender: { DEFAULT: '#EFEDFE', dark: '#7C6FF2' },
+        warmgray: '#292735',
+        muted: '#777483',
       },
-      borderRadius: {
-        xl2: '1.25rem',
+      borderRadius: { xl2: '0.75rem', card: '1.25rem' },
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
     },
   },

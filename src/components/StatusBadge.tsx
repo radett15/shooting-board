@@ -1,8 +1,11 @@
-const shootingStyles: Record<string, string> = {
-  planning: 'bg-yellow text-warmgray',
-  scheduled: 'bg-mint text-warmgray',
-  completed: 'bg-lavender text-warmgray',
-  cancelled: 'bg-gray-200 text-gray-500',
+const dotColor: Record<string, string> = {
+  planning: 'bg-yellow-dark',
+  scheduled: 'bg-mint-dark',
+  completed: 'bg-lavender-dark',
+  cancelled: 'bg-gray-400',
+  pending: 'bg-yellow-dark',
+  confirmed: 'bg-mint-dark',
+  declined: 'bg-pink-dark',
 }
 
 const shootingLabels: Record<string, string> = {
@@ -14,16 +17,11 @@ const shootingLabels: Record<string, string> = {
 
 export function ShootingStatusBadge({ status }: { status: string }) {
   return (
-    <span className={`text-xs font-semibold px-3 py-1 rounded-full ${shootingStyles[status] || ''}`}>
+    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-warmgray/80">
+      <span className={`w-1.5 h-1.5 rounded-full ${dotColor[status] || 'bg-gray-400'}`} />
       {shootingLabels[status] || status}
     </span>
   )
-}
-
-const attendanceStyles: Record<string, string> = {
-  pending: 'bg-yellow text-warmgray',
-  confirmed: 'bg-mint text-warmgray',
-  declined: 'bg-pink text-warmgray',
 }
 
 const attendanceLabels: Record<string, string> = {
@@ -34,7 +32,8 @@ const attendanceLabels: Record<string, string> = {
 
 export function AttendanceBadge({ status }: { status: string }) {
   return (
-    <span className={`text-xs font-semibold px-3 py-1 rounded-full ${attendanceStyles[status] || ''}`}>
+    <span className="inline-flex items-center gap-1.5 text-xs font-medium text-warmgray/80">
+      <span className={`w-1.5 h-1.5 rounded-full ${dotColor[status] || 'bg-gray-400'}`} />
       {attendanceLabels[status] || status}
     </span>
   )

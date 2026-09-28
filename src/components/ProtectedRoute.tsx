@@ -23,7 +23,7 @@ export function ProtectedRoute({
   return (
     <div className="min-h-screen bg-cream">
       <Nav />
-      {children}
+      <main className="md:pl-60">{children}</main>
     </div>
   )
 }

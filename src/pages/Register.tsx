@@ -28,14 +28,14 @@ export default function Register() {
   if (done) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-cream px-4">
-        <div className="w-full max-w-sm bg-white rounded-xl2 shadow-md p-6 text-center">
+        <div className="w-full max-w-sm bg-white rounded-card shadow-md p-6 text-center">
           <p className="text-lg font-semibold">Akun berhasil dibuat ✨</p>
           <p className="text-sm text-warmgray/70 mt-2">
             Cek email kamu untuk konfirmasi (kalau diminta), lalu silakan masuk.
           </p>
           <button
             onClick={() => navigate('/login')}
-            className="mt-4 w-full bg-pink-dark text-white font-semibold rounded-xl2 py-3"
+            className="mt-4 w-full bg-primary text-white font-semibold rounded-xl2 py-3"
           >
             Ke halaman Masuk
           </button>
@@ -46,7 +46,7 @@ export default function Register() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cream px-4">
-      <div className="w-full max-w-sm bg-white rounded-xl2 shadow-md p-6">
+      <div className="w-full max-w-sm bg-white rounded-card shadow-md p-6">
         <h1 className="text-2xl font-bold text-center">🎬 Buat Akun</h1>
         <p className="text-center text-sm text-warmgray/70 mt-1 mb-6">
           Akun baru otomatis jadi Crew. Admin bisa mengubah role lewat halaman Crew.
@@ -57,7 +57,7 @@ export default function Register() {
             placeholder="Nama lengkap"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-xl2 border border-pink px-4 py-3 outline-none focus:border-pink-dark"
+            className="w-full rounded-xl2 border border-line px-4 py-3 outline-none focus:border-primary"
           />
           <input
             type="email"
@@ -65,7 +65,7 @@ export default function Register() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-xl2 border border-pink px-4 py-3 outline-none focus:border-pink-dark"
+            className="w-full rounded-xl2 border border-line px-4 py-3 outline-none focus:border-primary"
           />
           <input
             type="password"
@@ -74,20 +74,20 @@ export default function Register() {
             placeholder="Password (min. 6 karakter)"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-xl2 border border-pink px-4 py-3 outline-none focus:border-pink-dark"
+            className="w-full rounded-xl2 border border-line px-4 py-3 outline-none focus:border-primary"
           />
           {error && <p className="text-sm text-red-500">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-pink-dark text-white font-semibold rounded-xl2 py-3 disabled:opacity-60"
+            className="w-full bg-primary text-white font-semibold rounded-xl2 py-3 disabled:opacity-60"
           >
             {loading ? 'Memproses...' : 'Daftar'}
           </button>
         </form>
         <p className="text-center text-sm mt-4">
           Sudah punya akun?{' '}
-          <Link to="/login" className="text-pink-dark font-semibold">
+          <Link to="/login" className="text-primary font-semibold">
             Masuk
           </Link>
         </p>

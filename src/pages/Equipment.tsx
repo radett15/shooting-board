@@ -52,7 +52,7 @@ export default function Equipment() {
         {isAdmin && (
           <button
             onClick={() => setShowForm(!showForm)}
-            className="bg-pink-dark text-white text-sm font-semibold px-4 py-2 rounded-xl2"
+            className="bg-primary text-white text-sm font-semibold px-4 py-2 rounded-xl2"
           >
             + Tambah
           </button>
@@ -61,7 +61,7 @@ export default function Equipment() {
       <p className="text-sm text-warmgray/70 mb-6">Alat produksi tim kamu.</p>
 
       {showForm && (
-        <form onSubmit={addEquipment} className="bg-white rounded-xl2 shadow-sm p-4 mb-4 flex gap-2">
+        <form onSubmit={addEquipment} className="bg-white rounded-card shadow-sm p-4 mb-4 flex gap-2">
           <input
             placeholder="Nama alat"
             value={name}
@@ -83,7 +83,7 @@ export default function Equipment() {
 
       <div className="space-y-3">
         {items.map((item) => (
-          <div key={item.id} className="bg-white rounded-xl2 shadow-sm p-4 flex items-center justify-between">
+          <div key={item.id} className="bg-white rounded-card shadow-sm p-4 flex items-center justify-between">
             <div>
               <p className="font-semibold">{item.name}</p>
               <p className="text-xs text-warmgray/60">
@@ -95,7 +95,7 @@ export default function Equipment() {
                 <select
                   value={item.status}
                   onChange={(e) => changeStatus(item.id, e.target.value as EquipmentStatus)}
-                  className="text-sm rounded-xl2 border border-pink px-2 py-1"
+                  className="text-sm rounded-xl2 border border-line px-2 py-1"
                 >
                   <option value="available">Available</option>
                   <option value="in_use">In Use</option>

@@ -1,16 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root {
-  height: 100%;
-}
+html, body, #root { height: 100%; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #4A4442;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #292735;
+  background: #FFFDF8;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { letter-spacing: -0.01em; }
+
+:focus-visible { outline: 2px solid #7C6FF2; outline-offset: 2px; }
+
+.shadow-sm {
+  box-shadow: 0 1px 3px rgba(41, 39, 53, 0.05) !important;
+  border: 1px solid #ECEAF2;
 }
 
 .input {
-  @apply w-full rounded-xl2 border border-pink px-4 py-2.5 outline-none focus:border-pink-dark bg-white;
+  @apply w-full rounded-xl2 border border-line px-4 py-2.5 outline-none bg-white transition focus:border-primary focus:ring-2 focus:ring-primary/20;
 }

@@ -41,7 +41,7 @@ export default function Calendar() {
     <div className="max-w-2xl mx-auto px-4 py-6 pb-24 md:pb-6">
       <h1 className="text-2xl font-bold mb-4">Kalender</h1>
 
-      <div className="bg-white rounded-xl2 shadow-sm p-4">
+      <div className="bg-white rounded-card shadow-sm p-4">
         <div className="flex items-center justify-between mb-3">
           <button
             onClick={() => setCursor(new Date(year, month - 1, 1))}
@@ -78,7 +78,7 @@ export default function Calendar() {
                     }`}
                   >
                     <span>{day}</span>
-                    {eventsToday.length > 0 && <span className="w-1.5 h-1.5 rounded-full bg-pink-dark mt-0.5" />}
+                    {eventsToday.length > 0 && <span className="w-1.5 h-1.5 rounded-full bg-primary mt-0.5" />}
                   </div>
                 )}
               </div>
@@ -97,7 +97,7 @@ export default function Calendar() {
             <Link
               key={s.id}
               to={`/shooting/${s.id}`}
-              className="block bg-white rounded-xl2 shadow-sm p-3 text-sm"
+              className="block bg-white rounded-card shadow-sm p-3 text-sm"
             >
               <span className="font-semibold">
                 {new Date(s.date + 'T00:00:00').getDate()} {namaBulan[month].slice(0, 3)}

@@ -131,7 +131,7 @@ export default function FormShooting() {
     <div className="max-w-xl mx-auto px-4 py-6 pb-24 md:pb-6">
       <h1 className="text-2xl font-bold mb-5">{isEdit ? 'Edit Shooting' : 'Tambah Shooting'}</h1>
 
-      <form onSubmit={handleSubmit} className="space-y-4 bg-white rounded-xl2 shadow-sm p-5">
+      <form onSubmit={handleSubmit} className="space-y-4 bg-white rounded-card shadow-sm p-5">
         <Field label="Judul Shooting">
           <input
             required
@@ -260,7 +260,7 @@ export default function FormShooting() {
         <button
           type="submit"
           disabled={saving}
-          className="w-full bg-pink-dark text-white font-semibold rounded-xl2 py-3 disabled:opacity-60"
+          className="w-full bg-primary text-white font-semibold rounded-xl2 py-3 disabled:opacity-60"
         >
           {saving ? 'Menyimpan...' : 'Simpan Shooting'}
         </button>
