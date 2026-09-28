@@ -1,4 +1,7 @@
 export type Role = 'admin' | 'crew'
+export type ShootType = 'photo' | 'video' | 'event' | 'other'
+export type ProjectStatus = 'planning' | 'pre_production' | 'in_production' | 'editing' | 'completed' | 'on_hold'
+export type Availability = 'available' | 'on_shoot' | 'busy'
 export type ShootingStatus = 'planning' | 'scheduled' | 'completed' | 'cancelled'
 export type AttendanceStatus = 'pending' | 'confirmed' | 'declined'
 export type EquipmentStatus = 'available' | 'in_use' | 'maintenance'
@@ -10,6 +13,9 @@ export interface Profile {
   role: Role
   phone?: string | null
   avatar_url?: string | null
+  job_title?: string | null
+  skills?: string | null
+  availability?: Availability
 }
 
 export interface Shooting {
@@ -24,6 +30,9 @@ export interface Shooting {
   notes?: string | null
   status: ShootingStatus
   created_by?: string | null
+  shoot_type?: ShootType
+  project_id?: string | null
+  shooting_crew?: { user_id: string }[]
 }
 
 export interface ShootingCrewRow {
@@ -48,4 +57,15 @@ export interface ShootingEquipmentRow {
   equipment_id: string
   quantity: number
   equipment?: Equipment
+}
+
+export interface Project {
+  id: string
+  name: string
+  type?: string | null
+  description?: string | null
+  deadline?: string | null
+  status: ProjectStatus
+  progress: number
+  team: string[]
 }

@@ -4,12 +4,12 @@ import { ProtectedRoute } from './components/ProtectedRoute'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
-import Jadwal from './pages/Jadwal'
+import Schedule from './pages/Schedule'
 import DetailShooting from './pages/DetailShooting'
 import FormShooting from './pages/FormShooting'
 import Crew from './pages/Crew'
 import Equipment from './pages/Equipment'
-import Calendar from './pages/Calendar'
+import Projects from './pages/Projects'
 
 export default function App() {
   return (
@@ -30,7 +30,7 @@ export default function App() {
           path="/schedule"
           element={
             <ProtectedRoute>
-              <Jadwal />
+              <Schedule />
             </ProtectedRoute>
           }
         />
@@ -75,10 +75,10 @@ export default function App() {
           }
         />
         <Route
-          path="/calendar"
+          path="/projects"
           element={
             <ProtectedRoute>
-              <Calendar />
+              <Projects />
             </ProtectedRoute>
           }
         />

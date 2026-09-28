@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { supabase } from '../lib/supabaseClient'
 import { useAuth } from '../context/AuthContext'
-import { Equipment, Profile, ShootingStatus } from '../types'
+import { Equipment, Profile, Project, ShootType, ShootingStatus } from '../types'
 
 const emptyForm = {
   title: '',
@@ -14,6 +14,8 @@ const emptyForm = {
   maps_url: '',
   notes: '',
   status: 'planning' as ShootingStatus,
+  shoot_type: 'video' as ShootType,
+  project_id: '',
 }
 
 export default function FormShooting() {
@@ -25,6 +27,7 @@ export default function FormShooting() {
   const [form, setForm] = useState(emptyForm)
   const [allCrew, setAllCrew] = useState<Profile[]>([])
   const [allEquipment, setAllEquipment] = useState<Equipment[]>([])
+  const [projects, setProjects] = useState<Project[]>([])
   const [selectedCrew, setSelectedCrew] = useState<string[]>([])
   const [selectedEquipment, setSelectedEquipment] = useState<string[]>([])
   const [saving, setSaving] = useState(false)
@@ -36,6 +39,8 @@ export default function FormShooting() {
       setAllCrew((crewData as Profile[]) || [])
       const { data: eqData } = await supabase.from('equipment').select('*').order('name')
       setAllEquipment((eqData as Equipment[]) || [])
+      const { data: prData } = await supabase.from('projects').select('*').order('name')
+      setProjects((prData as Project[]) || [])
 
       if (isEdit) {
         const { data: s } = await supabase.from('shootings').select('*').eq('id', id).single()
@@ -50,6 +55,8 @@ export default function FormShooting() {
             maps_url: s.maps_url || '',
             notes: s.notes || '',
             status: s.status,
+            shoot_type: s.shoot_type || 'video',
+            project_id: s.project_id || '',
           })
         }
         const { data: crewRows } = await supabase
@@ -87,6 +94,8 @@ export default function FormShooting() {
       maps_url: form.maps_url || null,
       notes: form.notes || null,
       status: form.status,
+      shoot_type: form.shoot_type,
+      project_id: form.project_id || null,
     }
 
     let shootingId = id
@@ -161,6 +170,25 @@ export default function FormShooting() {
               <option value="scheduled">Scheduled</option>
               <option value="completed">Completed</option>
               <option value="cancelled">Cancelled</option>
+            </select>
+          </Field>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <Field label="Project">
+            <select value={form.project_id} onChange={(e) => setForm({ ...form, project_id: e.target.value })} className="input">
+              <option value="">No project</option>
+              {projects.map((p) => (
+                <option key={p.id} value={p.id}>{p.name}</option>
+              ))}
+            </select>
+          </Field>
+          <Field label="Shoot Type">
+            <select value={form.shoot_type} onChange={(e) => setForm({ ...form, shoot_type: e.target.value as ShootType })} className="input">
+              <option value="photo">Photo</option>
+              <option value="video">Video</option>
+              <option value="event">Event</option>
+              <option value="other">Other</option>
             </select>
           </Field>
         </div>

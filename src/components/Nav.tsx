@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, CalendarDays, CalendarRange, Users, Camera, LogOut } from 'lucide-react'
+import { LayoutDashboard, CalendarDays, Folder, Users, Camera, LogOut } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 
 const links = [
   { to: '/', label: 'Dashboard', short: 'Home', icon: LayoutDashboard, end: true },
   { to: '/schedule', label: 'Schedule', short: 'Schedule', icon: CalendarDays },
-  { to: '/calendar', label: 'Calendar', short: 'Calendar', icon: CalendarRange },
+  { to: '/projects', label: 'Projects', short: 'Projects', icon: Folder },
   { to: '/crew', label: 'Team', short: 'Team', icon: Users },
   { to: '/equipment', label: 'Gear', short: 'Gear', icon: Camera },
 ]
